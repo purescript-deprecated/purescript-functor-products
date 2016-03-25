@@ -1,17 +1,17 @@
-# purescript-functors
+# purescript-functor-products
 
-[![Latest release](http://img.shields.io/bower/v/purescript-functors.svg)](https://github.com/purescript/purescript-functors/releases)
-[![Build Status](https://travis-ci.org/purescript/purescript-functors.svg)](https://travis-ci.org/purescript/purescript-functors)
-[![Dependency Status](https://www.versioneye.com/user/projects/5620ce1636d0ab0019000847/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5620ce1636d0ab0019000847)
+[![Latest release](http://img.shields.io/bower/v/purescript-functor-products.svg)](https://github.com/purescript/purescript-functor-products/releases)
+[![Build Status](https://travis-ci.org/purescript/purescript-functor-products.svg)](https://travis-ci.org/purescript/purescript-functor-products)
+[![Dependency Status](https://www.versioneye.com/user/projects/56f53e0e35630e003888aa14/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56f53e0e35630e003888aa14)
 
-Constructions on functors.
+Functor products.
 
 ## Installation
 
 ```
-bower install purescript-functors
+bower install purescript-functor-products
 ```
 
-## Module documentation
+## Documentation
 
-- [Data.Functor.Product](docs/Data/Functor/Product.md)
+Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-functor-products).

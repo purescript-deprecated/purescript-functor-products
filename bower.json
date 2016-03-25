@@ -1,21 +1,23 @@
 {
-  "name": "purescript-functors",
-  "moduleType": [
-    "node"
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "output"
-  ],
+  "name": "purescript-functor-products",
+  "homepage": "https://github.com/purescript/purescript-functor-products",
+  "description": "Functor products",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/purescript/purescript-functors.git"
+    "url": "git://github.com/purescript/purescript-functor-products.git"
   },
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "output",
+    "test",
+    "bower.json",
+    "package.json"
+  ],
   "dependencies": {
-    "purescript-prelude": "~0.1.2",
-    "purescript-foldable-traversable": "~0.4.0",
-    "purescript-tuples": "~0.4.0"
+    "purescript-foldable-traversable": "^1.0.0-rc.1",
+    "purescript-tuples": "^1.0.0-rc.1"
   }
 }
