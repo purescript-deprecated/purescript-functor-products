@@ -6,22 +6,36 @@ import Control.Apply (lift2)
 
 import Data.Bifunctor (bimap)
 import Data.Foldable (class Foldable, foldr, foldl, foldMap)
+import Data.Newtype (class Newtype, unwrap)
 import Data.Traversable (class Traversable, traverse, sequence)
 import Data.Tuple (Tuple(..), fst, snd)
 
 -- | `Product f g` is the product of the two functors `f` and `g`.
 newtype Product f g a = Product (Tuple (f a) (g a))
 
--- | Unwrap a product
-unProduct :: forall f g a. Product f g a -> Tuple (f a) (g a)
-unProduct (Product p) = p
-
 -- | Create a product.
 product :: forall f g a. f a -> g a -> Product f g a
 product fa ga = Product (Tuple fa ga)
 
+bihoistProduct
+  :: forall f g h i
+   . (f ~> h)
+  -> (g ~> i)
+  -> Product f g
+  ~> Product h i
+bihoistProduct natF natG (Product e) = Product (bimap natF natG e)
+
+derive instance newtypeProduct :: Newtype (Product f g a) _
+
+derive instance eqProduct :: (Eq (f a), Eq (g a)) => Eq (Product f g a)
+
+derive instance ordProduct :: (Ord (f a), Ord (g a)) => Ord (Product f g a)
+
+instance showProduct :: (Show (f a), Show (g a)) => Show (Product f g a) where
+  show (Product (Tuple fa ga)) = "(product " <> show fa <> " " <> show ga <> ")"
+
 instance functorProduct :: (Functor f, Functor g) => Functor (Product f g) where
-  map f = Product <<< bimap (map f) (map f) <<< unProduct
+  map f (Product fga) = Product (bimap (map f) (map f) fga)
 
 instance foldableProduct :: (Foldable f, Foldable g) => Foldable (Product f g) where
   foldr f z (Product (Tuple fa ga)) = foldr f (foldr f z ga) fa
@@ -39,7 +53,7 @@ instance applicativeProduct :: (Applicative f, Applicative g) => Applicative (Pr
   pure a = product (pure a) (pure a)
 
 instance bindProduct :: (Bind f, Bind g) => Bind (Product f g) where
-  bind (Product (Tuple fa ga)) f = product (fa >>= fst <<< unProduct <<< f)
-                                           (ga >>= snd <<< unProduct <<< f)
+  bind (Product (Tuple fa ga)) f =
+    product (fa >>= fst <<< unwrap <<< f) (ga >>= snd <<< unwrap <<< f)
 
 instance monadProduct :: (Monad f, Monad g) => Monad (Product f g)
