@@ -1,17 +1,5 @@
-# purescript-functor-products
+# DEPRECATED
 
-[![Latest release](http://img.shields.io/bower/v/purescript-functor-products.svg)](https://github.com/purescript/purescript-functor-products/releases)
-[![Build Status](https://travis-ci.org/purescript/purescript-functor-products.svg)](https://travis-ci.org/purescript/purescript-functor-products)
-[![Dependency Status](https://www.versioneye.com/user/projects/56f53e0e35630e003888aa14/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56f53e0e35630e003888aa14)
+The library is no longer maintained under this repository, it has moved to [`purescript-functors`](https://github.com/purescript/purescript-functors).
 
-Functor products.
-
-## Installation
-
-```
-bower install purescript-functor-products
-```
-
-## Documentation
-
-Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-functor-products).
+[The previous releases](https://github.com/purescript-deprecated/purescript-functor-products/releases) will continue to work for older libraries that still depend on them.
